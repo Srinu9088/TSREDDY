@@ -1,0 +1,290 @@
+﻿@model Q4TM.Models.EmployeeTaskModel
+@{
+    ViewBag.Title = "UserPage";
+    Layout = "~/Views/Shared/_User.cshtml";
+
+}
+
+<h4 style="text-align:right;padding-right:30px;color:blueviolet;padding-top:0px">Hello, Welcome @Session["Lname"].ToString()  @Session["Fname"].ToString()</h4>
+
+<button class="btn btn-success container" style="margin-left:120px;margin-top:20px" id="btnAdd"><i class="glyphicon glyphicon-plus-sign"></i>Add Task</button><br />
+
+@*  This division is used to diplay user task page  *@
+<div class="container" style="text-align:center;padding-top:30px">
+    <form id="etasks" style="display:none">
+        <div class="col-md-2">
+            @Html.EditorFor(model => model.TaskDate, new { htmlAttributes = new { @class = "form-control", placeholder = "Pick Date", id = "datePick" } })
+            @Html.ValidationMessageFor(model => model.TaskDate, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-6">
+            @Html.EditorFor(model => model.Task, new { htmlAttributes = new { @class = "form-control", placeholder = "Task Description" } })
+            @Html.ValidationMessageFor(model => model.Task, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-2">
+            @Html.EditorFor(model => model.Type_Of_Task, new { htmlAttributes = new { @class = "form-control", placeholder = "Type Of Task" } })
+            @Html.ValidationMessageFor(model => model.Type_Of_Task, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-md-1">
+            <input id="submitBtn" type="button" value="Submit" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+@*  This division is used to diplay the radio buttons to search the tasks  *@
+<div class="container" id="radio" style="display:none;padding-left:260px">
+
+    <button href="#" id="TaskReg" class="btn btn-primary" style="margin-left:100px;margin-top:-60px"><i class="glyphicon glyphicon-circle-arrow-left"></i>Back</button>
+    <div class="col-md-4">
+        <label style="font-size:16pt"><input type="radio" id="specific" value="Specific" name="Search" />Specific(Date)</label>
+    </div>
+    <div class="col-md-4">
+        <label style="font-size:16pt"><input type="radio" id="between" value="Between" name="Search" />Between(Dates)</label>
+    </div>
+</div>
+
+@*  This division is used to search the tasks from to to dates  *@
+<div style="display:none;text-align:center;padding-left:200px" id="ser1" class="container">
+    <div class="col-md-4">
+        @Html.EditorFor(model => model.TaskDate, new { htmlAttributes = new { @class = "form-control", placeholder = "From Date", id = "datePick1" } })
+    </div>
+
+    <div class="col-md-4">
+        @Html.EditorFor(model => model.TaskDate, new { htmlAttributes = new { @class = "form-control", placeholder = "To Date", id = "datePick2" } })
+    </div>
+
+    <div class="col-md-1">
+        <input id="BetweenSearch" type="button" value="Search" class="btn btn-primary" />
+    </div>
+</div>
+@*  This division is used to search the tasks based on particular date *@
+<div class="container" style="text-align:center;display:none;padding-left:250px" id="ser2">
+    <form>
+        <div class="col-md-4">
+            @Html.EditorFor(model => model.TaskDate, new { htmlAttributes = new { @class = "form-control", placeholder = "Pick Date", id = "PdatePick" } })
+        </div>
+
+        <div class="col-md-2">
+            <input id="ParticularSearch" type="button" value="Search" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
+<div class="container taskList" style="margin-top:20px">
+
+
+</div>
+
+<script src="~/Scripts/jquery-1.12.4.js"></script>
+<script src="~/Scripts/jquery-ui.js"></script>
+<script src="~/Scripts/jquery-confirm.js"></script>
+
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+
+<link href="~/Content/jquery-confirm.css" rel="stylesheet" />
+
+
+<script>
+
+    $(document).ready(function () {
+        $("#datePick").datepicker();
+
+    })
+
+    $().ready(function () {
+        $("#PdatePick").datepicker();
+    }
+    )
+
+    $().ready(function () {
+        $("#datePick1").datepicker();
+    }
+    )
+
+    $().ready(function () {
+        $("#datePick2").datepicker();
+    }
+    )
+
+   
+
+
+    $("#btnAdd").click(function () {
+        $("#etasks").toggle();
+        $("#radio").hide();
+        $("#ser2").hide();
+        $("#ser1").hide();
+
+    })
+
+    $(document).ready(function () {
+
+        var TaskListMethod = function () {
+            $.ajax({
+                type: "Get",
+                url: "/Q4TM/Tasks",
+                success: function (response) {
+                    if (response != "" || response != null) {
+
+                        $(".taskList").empty();
+                        $(".taskList").append(response);
+                    }
+                }
+
+            })
+        }
+        TaskListMethod();
+
+        $("#submitBtn").click(function () {
+
+            var data = $("#etasks").serialize();
+
+            var taskDate = $("#datePick").val();
+            var task = $("#Task").val();
+            var type_Of_Task = $("#Type_Of_Task").val();
+
+            if (taskDate == "" || taskDate == undefined) {
+                $.alert({
+                    title: 'Select...?',
+                    content: 'Please pick date...?',
+                    animation: 'news',
+                    closeAnimation: 'news',
+                    animationBounce: 3.0,
+                    closeIcon: true,
+                });
+                return false;
+            }
+            if (task == "" || task == undefined) {
+                $.alert({
+                    title: 'Enter...?',
+                    content: 'Please enter task description...?',
+                    animation: 'news',
+                    closeAnimation: 'news',
+                    animationBounce: 3.0,
+                    closeIcon: true,
+                });
+                return false;
+            }
+            if (type_Of_Task == "" || type_Of_Task == undefined) {
+                $.alert({
+                    title: 'Enter...?',
+                    content: 'Please enter type task...?',
+                    animation: 'news',
+                    closeAnimation: 'news',
+                    animationBounce: 3.0,
+                    closeIcon: true,
+                });
+                return false;
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "/Q4TM/List",
+                data: { Task: task, TaskDate: taskDate, Type_Of_Task: type_Of_Task },
+                success: function (response) {
+                    if (response == "yes") {
+                        $.alert({
+                            title: 'Submitted...?',
+                            content: 'Submitted successfully...?',
+                            animation: 'news',
+                            closeAnimation: 'news',
+                            animationBounce: 3.0,
+                            closeIcon: true,
+                        });
+                        $("#etasks input[type=text]").val('');
+                        TaskListMethod();
+                    }
+                }
+            })
+        })
+    })
+
+    $("#TaskReg").click(function () {
+
+        window.location.href = "UserPage";
+
+    })
+
+    $("#ParticularSearch").click(function () {
+
+        var pdate = $("#PdatePick").val();
+        if (pdate == "") {
+            {
+                $.alert({
+                    title: 'Select...?',
+                    content: 'Please pick date...?',
+                    animation: 'news',
+                    closeAnimation: 'news',
+                    animationBounce: 3.0,
+                    closeIcon: true,
+                });
+                return false;
+            }
+        }
+        $.ajax({
+            type: "POST",
+            url: "/Q4TM/ParSearch",
+            data: { PDate: pdate },
+
+            success: function (response) {
+
+                if (response != "" || response != null) {
+
+                    $(".taskList").empty();
+                    $(".taskList").append(response);
+                    //$("#PdatePick").val('');
+
+                }
+
+            }
+        })
+    })
+
+    $("#BetweenSearch").click(function () {
+
+        var from = $("#datePick1").val();
+        var to = $("#datePick2").val();
+
+        if (from == "") {
+            $.alert({
+                title: 'Select...?',
+                content: 'Please pick from date...?',
+                animation: 'news',
+                closeAnimation: 'news',
+                animationBounce: 3.0,
+                closeIcon: true,
+            });
+            return false;
+        }
+        if (to == "") {
+            $.alert({
+                title: 'Select...?',
+                content: 'Please pick to date...?',
+                animation: 'news',
+                closeAnimation: 'news',
+                animationBounce: 3.0,
+                closeIcon: true,
+            });
+            return false;
+        }
+        $.ajax({
+            type: "POST",
+            url: "/Q4TM/BtwSearch",
+            data: { From: from, To: to },
+            success: function (response) {
+
+                if (response != "" || response != null) {
+
+                    $(".taskList").empty();
+                    $(".taskList").append(response);
+                   // $("#datePick1").val('');
+                  //$("#datePick2").val('');
+                }
+
+            }
+        })
+    })
+
+
+</script>

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TSRModelStoreContainer" CdmEntityContainer="TSREntities">
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="TSRModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee_Task">
+      <EntityTypeMapping TypeName="TSRModel.Employee_Task">
+        <MappingFragment StoreEntitySet="Employee_Task">
+          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+          <ScalarProperty Name="Task" ColumnName="Task" />
+          <ScalarProperty Name="Type_Of_Work" ColumnName="Type_Of_Work" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeTaskLists">
+      <EntityTypeMapping TypeName="TSRModel.EmployeeTaskList">
+        <MappingFragment StoreEntitySet="EmployeeTaskList">
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="End_Time" ColumnName="End_Time" />
+          <ScalarProperty Name="Start_Time" ColumnName="Start_Time" />
+          <ScalarProperty Name="Type_Of_Task" ColumnName="Type_Of_Task" />
+          <ScalarProperty Name="Task" ColumnName="Task" />
+          <ScalarProperty Name="TaskDate" ColumnName="TaskDate" />
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TasksImpNurgs">
+      <EntityTypeMapping TypeName="TSRModel.TasksImpNurg">
+        <MappingFragment StoreEntitySet="TasksImpNurg">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="End_Time" ColumnName="End_Time" />
+          <ScalarProperty Name="Start_Time" ColumnName="Start_Time" />
+          <ScalarProperty Name="Type_Of_Task" ColumnName="Type_Of_Task" />
+          <ScalarProperty Name="Task" ColumnName="Task" />
+          <ScalarProperty Name="TaskDate" ColumnName="TaskDate" />
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TasksImpUrgs">
+      <EntityTypeMapping TypeName="TSRModel.TasksImpUrg">
+        <MappingFragment StoreEntitySet="TasksImpUrg">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="End_Time" ColumnName="End_Time" />
+          <ScalarProperty Name="Start_Time" ColumnName="Start_Time" />
+          <ScalarProperty Name="Type_Of_Task" ColumnName="Type_Of_Task" />
+          <ScalarProperty Name="Task" ColumnName="Task" />
+          <ScalarProperty Name="TaskDate" ColumnName="TaskDate" />
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TasksNimpNurgs">
+      <EntityTypeMapping TypeName="TSRModel.TasksNimpNurg">
+        <MappingFragment StoreEntitySet="TasksNimpNurg">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="End_Time" ColumnName="End_Time" />
+          <ScalarProperty Name="Start_Time" ColumnName="Start_Time" />
+          <ScalarProperty Name="Type_Of_Task" ColumnName="Type_Of_Task" />
+          <ScalarProperty Name="Task" ColumnName="Task" />
+          <ScalarProperty Name="TaskDate" ColumnName="TaskDate" />
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TasksNimpUrgs">
+      <EntityTypeMapping TypeName="TSRModel.TasksNimpUrg">
+        <MappingFragment StoreEntitySet="TasksNimpUrg">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="End_Time" ColumnName="End_Time" />
+          <ScalarProperty Name="Start_Time" ColumnName="Start_Time" />
+          <ScalarProperty Name="Type_Of_Task" ColumnName="Type_Of_Task" />
+          <ScalarProperty Name="Task" ColumnName="Task" />
+          <ScalarProperty Name="TaskDate" ColumnName="TaskDate" />
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

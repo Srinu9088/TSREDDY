@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "LoggedIn";
+    //Layout = "~/Views/_ViewStart.cshtml";
+}
+
+<h2>LoggedIn</h2>
+@if(Session["email"]!=null)
+{
+    <h3>Hello, Welcome @Session["Fname"].ToString() @Session["Lname"].ToString()</h3>
+}
+
+

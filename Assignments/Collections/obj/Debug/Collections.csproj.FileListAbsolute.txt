@@ -1,0 +1,14 @@
+G:\.Net Videos\Kiran training\Assignments\Collections\bin\Debug\Collections.exe.config
+G:\.Net Videos\Kiran training\Assignments\Collections\bin\Debug\Collections.exe
+G:\.Net Videos\Kiran training\Assignments\Collections\bin\Debug\Collections.pdb
+G:\.Net Videos\Kiran training\Assignments\Collections\obj\Debug\Collections.csprojAssemblyReference.cache
+G:\.Net Videos\Kiran training\Assignments\Collections\obj\Debug\Collections.csproj.CoreCompileInputs.cache
+G:\.Net Videos\Kiran training\Assignments\Collections\obj\Debug\Collections.exe
+G:\.Net Videos\Kiran training\Assignments\Collections\obj\Debug\Collections.pdb
+C:\Users\TSREDDY\source\repos\Assignments\Collections\bin\Debug\Collections.exe.config
+C:\Users\TSREDDY\source\repos\Assignments\Collections\bin\Debug\Collections.exe
+C:\Users\TSREDDY\source\repos\Assignments\Collections\bin\Debug\Collections.pdb
+C:\Users\TSREDDY\source\repos\Assignments\Collections\obj\Debug\Collections.csprojResolveAssemblyReference.cache
+C:\Users\TSREDDY\source\repos\Assignments\Collections\obj\Debug\Collections.csproj.CoreCompileInputs.cache
+C:\Users\TSREDDY\source\repos\Assignments\Collections\obj\Debug\Collections.exe
+C:\Users\TSREDDY\source\repos\Assignments\Collections\obj\Debug\Collections.pdb

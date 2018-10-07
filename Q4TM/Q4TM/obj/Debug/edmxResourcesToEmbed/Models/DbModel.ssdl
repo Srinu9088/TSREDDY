@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QTMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmpId" />
+    </Key>
+    <Property Name="EmpId" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmpTaskList">
+    <Key>
+      <PropertyRef Name="TaskId" />
+    </Key>
+    <Property Name="TaskId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpId" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="TaskDate" Type="date" Nullable="false" />
+    <Property Name="Task" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Type_Of_Task" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Start_Time" Type="time" Precision="7" />
+    <Property Name="End_Time" Type="time" Precision="7" />
+    <Property Name="Status_Percentage" Type="varchar" MaxLength="100" />
+    <Property Name="Quadrant_Id" Type="varchar" MaxLength="20" />
+    <Property Name="IsDeleted" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Quadrant">
+    <Key>
+      <PropertyRef Name="Quadrant_Id" />
+    </Key>
+    <Property Name="Quadrant_Id" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Quadrant_Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__EmpTaskLi__Quadr__4D94879B">
+    <End Role="Quadrant" Type="Self.Quadrant" Multiplicity="0..1" />
+    <End Role="EmpTaskList" Type="Self.EmpTaskList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quadrant">
+        <PropertyRef Name="Quadrant_Id" />
+      </Principal>
+      <Dependent Role="EmpTaskList">
+        <PropertyRef Name="Quadrant_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QTMModelStoreContainer">
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmpTaskList" EntityType="Self.EmpTaskList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Quadrant" EntityType="Self.Quadrant" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__EmpTaskLi__Quadr__4D94879B" Association="Self.FK__EmpTaskLi__Quadr__4D94879B">
+      <End Role="Quadrant" EntitySet="Quadrant" />
+      <End Role="EmpTaskList" EntitySet="EmpTaskList" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

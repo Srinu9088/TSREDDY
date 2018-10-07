@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "User Page";
+}
+
+<script src="~/Scripts/jquery-1.12.4.js"></script>
+<script src="~/Scripts/DataTable/jquery.dataTables.js"></script>
+<link href="~/Content/DataTable/css/jquery.dataTables.css" rel="stylesheet" />
+
+<script src="~/Scripts/bootstrap.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<style>
+    .affix {
+        top: 0;
+        width: 100%;
+        z-index: 9999 !important;
+    }
+
+        .affix + .page-header {
+            padding-top: 90px;
+        }
+</style>
+<div class="page-header" style="margin-top:5px">
+    <div class="row">
+        <div class="col-md-3">
+            <img src="~/Content/Images/srasys.png" />
+        </div>
+        <div class="col-md-6" style="text-align:center">
+            <h3>SRASYS INNOVATIONS (INDIA) PRIVATE LIMITED</h3>
+            <h4 style="font-weight:bold">TIME MANAGEMENT</h4>
+
+        </div>
+        <div class="col-md-3">
+            <img src="~/Content/Images/srasys.png" />
+        </div>
+    </div>
+</div>
+<br />
+<div class="navbar navbar-inverse" data-spy="affix" data-offset-top="195" style="margin-top:-40px">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" style="color:white;font-weight:bold">Welcome To 4QTM</a>
+        </div>
+        <div class="navbar-collapse collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("4QTM", "Q4TM")</li>
+                @*<li>@Html.ActionLink("Create New Task", "UserPage")</li>*@
+            </ul>
+            <div class="nav navbar-nav navbar-right" style="padding:10px">
+                <a><i class="glyphicon glyphicon-log-out"></i>@Html.ActionLink("Logout", "Logout")</a>
+            </div>
+        </div>
+    </div>
+</div>
+@RenderBody()

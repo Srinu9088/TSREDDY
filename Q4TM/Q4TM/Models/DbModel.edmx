@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="QTMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmpId" />
+          </Key>
+          <Property Name="EmpId" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmpTaskList">
+          <Key>
+            <PropertyRef Name="TaskId" />
+          </Key>
+          <Property Name="TaskId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmpId" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="TaskDate" Type="date" Nullable="false" />
+          <Property Name="Task" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Type_Of_Task" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Start_Time" Type="time" Precision="7" />
+          <Property Name="End_Time" Type="time" Precision="7" />
+          <Property Name="Status_Percentage" Type="varchar" MaxLength="100" />
+          <Property Name="Quadrant_Id" Type="varchar" MaxLength="20" />
+          <Property Name="IsDeleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Quadrant">
+          <Key>
+            <PropertyRef Name="Quadrant_Id" />
+          </Key>
+          <Property Name="Quadrant_Id" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Quadrant_Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__EmpTaskLi__Quadr__4D94879B">
+          <End Role="Quadrant" Type="Self.Quadrant" Multiplicity="0..1" />
+          <End Role="EmpTaskList" Type="Self.EmpTaskList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quadrant">
+              <PropertyRef Name="Quadrant_Id" />
+            </Principal>
+            <Dependent Role="EmpTaskList">
+              <PropertyRef Name="Quadrant_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QTMModelStoreContainer">
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmpTaskList" EntityType="Self.EmpTaskList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Quadrant" EntityType="Self.Quadrant" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__EmpTaskLi__Quadr__4D94879B" Association="Self.FK__EmpTaskLi__Quadr__4D94879B">
+            <End Role="Quadrant" EntitySet="Quadrant" />
+            <End Role="EmpTaskList" EntitySet="EmpTaskList" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QTMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmpId" />
+          </Key>
+          <Property Name="EmpId" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmpTaskList">
+          <Key>
+            <PropertyRef Name="TaskId" />
+          </Key>
+          <Property Name="TaskId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpId" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TaskDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Task" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Type_Of_Task" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Start_Time" Type="Time" Precision="7" />
+          <Property Name="End_Time" Type="Time" Precision="7" />
+          <Property Name="Status_Percentage" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Quadrant_Id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsDeleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Quadrant" Relationship="Self.FK__EmpTaskLi__Quadr__4D94879B" FromRole="EmpTaskList" ToRole="Quadrant" />
+        </EntityType>
+        <EntityType Name="Quadrant">
+          <Key>
+            <PropertyRef Name="Quadrant_Id" />
+          </Key>
+          <Property Name="Quadrant_Id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Quadrant_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EmpTaskLists" Relationship="Self.FK__EmpTaskLi__Quadr__4D94879B" FromRole="Quadrant" ToRole="EmpTaskList" />
+        </EntityType>
+        <Association Name="FK__EmpTaskLi__Quadr__4D94879B">
+          <End Role="Quadrant" Type="Self.Quadrant" Multiplicity="0..1" />
+          <End Role="EmpTaskList" Type="Self.EmpTaskList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quadrant">
+              <PropertyRef Name="Quadrant_Id" />
+            </Principal>
+            <Dependent Role="EmpTaskList">
+              <PropertyRef Name="Quadrant_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QTMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="EmpTaskLists" EntityType="Self.EmpTaskList" />
+          <EntitySet Name="Quadrants" EntityType="Self.Quadrant" />
+          <AssociationSet Name="FK__EmpTaskLi__Quadr__4D94879B" Association="Self.FK__EmpTaskLi__Quadr__4D94879B">
+            <End Role="Quadrant" EntitySet="Quadrants" />
+            <End Role="EmpTaskList" EntitySet="EmpTaskLists" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QTMModelStoreContainer" CdmEntityContainer="QTMEntities">
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="QTMModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmpTaskLists">
+            <EntityTypeMapping TypeName="QTMModel.EmpTaskList">
+              <MappingFragment StoreEntitySet="EmpTaskList">
+                <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+                <ScalarProperty Name="TaskDate" ColumnName="TaskDate" />
+                <ScalarProperty Name="Task" ColumnName="Task" />
+                <ScalarProperty Name="Type_Of_Task" ColumnName="Type_Of_Task" />
+                <ScalarProperty Name="Start_Time" ColumnName="Start_Time" />
+                <ScalarProperty Name="End_Time" ColumnName="End_Time" />
+                <ScalarProperty Name="Status_Percentage" ColumnName="Status_Percentage" />
+                <ScalarProperty Name="Quadrant_Id" ColumnName="Quadrant_Id" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Quadrants">
+            <EntityTypeMapping TypeName="QTMModel.Quadrant">
+              <MappingFragment StoreEntitySet="Quadrant">
+                <ScalarProperty Name="Quadrant_Id" ColumnName="Quadrant_Id" />
+                <ScalarProperty Name="Quadrant_Name" ColumnName="Quadrant_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

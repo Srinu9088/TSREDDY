@@ -1,0 +1,7 @@
+C:\Users\TSREDDY\source\repos\Assignments\Assignments\bin\Debug\Assignments.exe.config
+C:\Users\TSREDDY\source\repos\Assignments\Assignments\bin\Debug\Assignments.exe
+C:\Users\TSREDDY\source\repos\Assignments\Assignments\bin\Debug\Assignments.pdb
+C:\Users\TSREDDY\source\repos\Assignments\Assignments\obj\Debug\SecondAssignment.csprojResolveAssemblyReference.cache
+C:\Users\TSREDDY\source\repos\Assignments\Assignments\obj\Debug\SecondAssignment.csproj.CoreCompileInputs.cache
+C:\Users\TSREDDY\source\repos\Assignments\Assignments\obj\Debug\Assignments.exe
+C:\Users\TSREDDY\source\repos\Assignments\Assignments\obj\Debug\Assignments.pdb

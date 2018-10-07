@@ -1,0 +1,6 @@
+C:\Users\TSREDDY\source\repos\Assignments\Collections\bin\Debug\Collections.exe.config
+C:\Users\TSREDDY\source\repos\Assignments\Collections\bin\Debug\Collections.exe
+C:\Users\TSREDDY\source\repos\Assignments\Collections\bin\Debug\Collections.pdb
+C:\Users\TSREDDY\source\repos\Assignments\Collections\obj\Debug\Practice.csproj.CoreCompileInputs.cache
+C:\Users\TSREDDY\source\repos\Assignments\Collections\obj\Debug\Collections.exe
+C:\Users\TSREDDY\source\repos\Assignments\Collections\obj\Debug\Collections.pdb

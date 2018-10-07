@@ -1,0 +1,42 @@
+﻿<html>
+<head>
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <style>
+        .about_box {
+            color: black;
+            margin: 50pt 220pt 35pt 80pt;
+            box-shadow: 6px 8px 67px 0px rgba(0,0,0,0.44);
+            padding: 40px;
+            font-size: 16pt;
+            border-radius: 10pt;
+        }
+    </style>
+</head>
+<body>
+    <script src="~/Scripts/wow.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <div class="about_box wow zoomIn" style="background-color:lightblue">
+        <div class="col-md-12" style="text-align:justify">
+            The biggest and most destructive myth in time management is that you can get <br />
+            everything done if only you follow the right system, use the right to-do list, or<br />
+            process your tasks in the right way. That’s a mistake. We live in a time when  <br />
+            the uninterrupted stream of information and communication, combined with our <br />
+            unceasing accessibility, means that we could work every single hour of the day <br />
+            and night and still not keep up. For that reason, choosing what we are going to <br />
+            ignore may well represent the most important, most strategic time-management <br />
+            decision of all.<br /><br />
+            “Time management” is the process of organizing and planning how to divide your<br />
+            time between specific activities. Good time management enables you to work <br />
+            smarter – not harder – so that you get more done in less time, even when<br />
+            time is tight and pressures are high. Failing to manage your time damages your <br />
+            effectiveness and causes stress.
+        </div>
+    </div>
+    <div>
+        @Html.ActionLink("Back to Home", "Index")
+    </div>
+</body>
+</html>
+

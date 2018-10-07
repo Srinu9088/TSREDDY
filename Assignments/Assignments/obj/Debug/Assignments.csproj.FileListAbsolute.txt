@@ -1,0 +1,14 @@
+G:\.Net Videos\Kiran training\Assignments\Assignments\bin\Debug\Assignments.exe.config
+G:\.Net Videos\Kiran training\Assignments\Assignments\bin\Debug\Assignments.exe
+G:\.Net Videos\Kiran training\Assignments\Assignments\bin\Debug\Assignments.pdb
+G:\.Net Videos\Kiran training\Assignments\Assignments\obj\Debug\Assignments.csprojAssemblyReference.cache
+G:\.Net Videos\Kiran training\Assignments\Assignments\obj\Debug\Assignments.csproj.CoreCompileInputs.cache
+G:\.Net Videos\Kiran training\Assignments\Assignments\obj\Debug\Assignments.exe
+G:\.Net Videos\Kiran training\Assignments\Assignments\obj\Debug\Assignments.pdb
+C:\Users\TSREDDY\source\repos\Assignments\Assignments\obj\Debug\Assignments.csproj.CoreCompileInputs.cache
+C:\Users\TSREDDY\source\repos\Assignments\Assignments\obj\Debug\Assignments.exe
+C:\Users\TSREDDY\source\repos\Assignments\Assignments\obj\Debug\Assignments.pdb
+C:\Users\TSREDDY\source\repos\Assignments\Assignments\bin\Debug\Assignments.exe.config
+C:\Users\TSREDDY\source\repos\Assignments\Assignments\bin\Debug\Assignments.exe
+C:\Users\TSREDDY\source\repos\Assignments\Assignments\bin\Debug\Assignments.pdb
+C:\Users\TSREDDY\source\repos\Assignments\Assignments\obj\Debug\Assignments.csprojResolveAssemblyReference.cache
